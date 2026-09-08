@@ -27,10 +27,10 @@ export const DrawControl: React.FC<DrawControlProps> = ({
 
   // --- stable callback refs so Effect 1 closure never goes stale ---
   const cbCreated = useRef(onPolygonCreated);
-  const cbEdited  = useRef(onRegionGeometryEdited);
+  const cbEdited = useRef(onRegionGeometryEdited);
   const cbDeleted = useRef(onRegionGeometryDeleted);
   useEffect(() => { cbCreated.current = onPolygonCreated; });
-  useEffect(() => { cbEdited.current  = onRegionGeometryEdited; });
+  useEffect(() => { cbEdited.current = onRegionGeometryEdited; });
   useEffect(() => { cbDeleted.current = onRegionGeometryDeleted; });
 
   // leafletLayerId -> regionId  (for layers that came from the DB)
@@ -172,7 +172,7 @@ export const DrawControl: React.FC<DrawControlProps> = ({
         const geom = typeof region.geojson === "string" ? JSON.parse(region.geojson) : region.geojson;
         const geometry = geom.geometry || geom;
         const col = ownershipColor(region.ownership);
-        const isNegeri = region.ownership === "Negeri";
+        const isPTI = region.ownership === "Perguruan Tinggi Islam";
 
         const geoLayer = L.geoJSON(geometry, {
           style: () => ({
@@ -189,7 +189,7 @@ export const DrawControl: React.FC<DrawControlProps> = ({
             `<div style="min-width:170px;padding:2px">
               <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
                 <span style="font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase">ID #${region.id}</span>
-                <span style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:9999px;background:${isNegeri ? "rgba(59,130,246,.2)" : "rgba(16,185,129,.2)"};color:${isNegeri ? "#93c5fd" : "#6ee7b7"};border:1px solid ${isNegeri ? "rgba(59,130,246,.4)" : "rgba(16,185,129,.4)"}">
+                <span style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:9999px;background:${isPTI ? "rgba(59,130,246,.2)" : "rgba(16,185,129,.2)"};color:${isPTI ? "#93c5fd" : "#6ee7b7"};border:1px solid ${isPTI ? "rgba(59,130,246,.4)" : "rgba(16,185,129,.4)"}">
                   ${region.ownership}
                 </span>
               </div>

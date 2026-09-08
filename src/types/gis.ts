@@ -1,4 +1,4 @@
-export type OwnershipType = "Negeri" | "Swasta";
+export type OwnershipType = "Perguruan Tinggi Islam" | "Pondok Pesantren";
 
 export interface Region {
   id: number;

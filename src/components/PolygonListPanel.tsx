@@ -2,7 +2,7 @@
 import type { Region } from "../types/gis";
 
 export function ownershipColor(ownership: string) {
-  return ownership === "Negeri"
+  return ownership === "Perguruan Tinggi Islam"
     ? { stroke: "#2563eb", fill: "#3b82f6" }
     : { stroke: "#059669", fill: "#10b981" };
 }
@@ -35,7 +35,7 @@ export const PolygonListPanel: React.FC<PolygonListPanelProps> = ({
   const hasActions = onEditMeta || onDelete;
 
   return (
-    <div className="fixed top-20 right-4 z-[1000] w-72 pointer-events-auto">
+    <div className="fixed top-20 right-4 z-[1000] w-80 pointer-events-auto">
       <div className="bg-slate-900/90 backdrop-blur-xl border border-slate-800/80 rounded-2xl shadow-2xl shadow-black/60 overflow-hidden">
         {/* Header / toggle */}
         <button
@@ -67,11 +67,11 @@ export const PolygonListPanel: React.FC<PolygonListPanelProps> = ({
             <div className="px-4 pb-2 flex items-center gap-4 text-[10px] text-slate-400 border-b border-slate-800/60">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-sm bg-blue-500/40 border border-blue-500 inline-block" />
-                <span>Negeri</span>
+                <span>Perguruan Tinggi Islam</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-sm bg-emerald-500/40 border border-emerald-500 inline-block" />
-                <span>Swasta</span>
+                <span>Pondok Pesantren</span>
               </div>
               {onRefresh && (
                 <button

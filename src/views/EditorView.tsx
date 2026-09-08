@@ -48,7 +48,7 @@ export const EditorView: React.FC<EditorViewProps> = ({ onNavigateHome, onRegion
 
   const [modal, setModal] = useState<ModalState>({ open: false, mode: "create" });
   const [formName, setFormName] = useState("");
-  const [formOwnership, setFormOwnership] = useState<OwnershipType>("Negeri");
+  const [formOwnership, setFormOwnership] = useState<OwnershipType>("Perguruan Tinggi Islam");
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
 
@@ -114,7 +114,7 @@ export const EditorView: React.FC<EditorViewProps> = ({ onNavigateHome, onRegion
   // ── New polygon drawn on map ───────────────────────────────────────────────
   const handlePolygonCreated = useCallback((layer: L.Layer, geojson: any) => {
     setFormName("");
-    setFormOwnership("Negeri");
+    setFormOwnership("Perguruan Tinggi Islam");
     setFormError(null);
     setModal({ open: true, mode: "create", pendingLayer: layer, pendingGeoJSON: geojson });
   }, []);
@@ -352,8 +352,8 @@ export const EditorView: React.FC<EditorViewProps> = ({ onNavigateHome, onRegion
                     onChange={(e) => setFormOwnership(e.target.value as OwnershipType)}
                     className="w-full px-3.5 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition appearance-none cursor-pointer"
                   >
-                    <option value="Negeri">Negeri (Pemerintah / BUMN)</option>
-                    <option value="Swasta">Swasta (Privat / Yayasan)</option>
+                    <option value="Perguruan Tinggi Islam">Perguruan Tinggi Islam</option>
+                    <option value="Pondok Pesantren">Pondok Pesantren</option>
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-400">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -385,8 +385,8 @@ export const EditorView: React.FC<EditorViewProps> = ({ onNavigateHome, onRegion
                     {submitting
                       ? "Menyimpan..."
                       : modal.mode === "create"
-                      ? "Simpan Wilayah"
-                      : "Perbarui"}
+                        ? "Simpan Wilayah"
+                        : "Perbarui"}
                   </span>
                 </button>
               </div>

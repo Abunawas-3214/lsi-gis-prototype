@@ -21,11 +21,11 @@ db.run(`
 const countQuery = db.query<{ count: number }, []>("SELECT COUNT(*) as count FROM regions").get();
 if (!countQuery || countQuery.count === 0) {
   const insertStmt = db.prepare("INSERT INTO regions (name, ownership, geojson) VALUES (?, ?, ?)");
-  
+
   const sampleRegions = [
     {
       name: "Kawasan Kampus ITS Sukolilo Surabaya",
-      ownership: "Negeri",
+      ownership: "Perguruan Tinggi Islam",
       geojson: JSON.stringify({
         type: "Polygon",
         coordinates: [
@@ -41,7 +41,7 @@ if (!countQuery || countQuery.count === 0) {
     },
     {
       name: "Kompleks Universitas Brawijaya Malang",
-      ownership: "Negeri",
+      ownership: "Perguruan Tinggi Islam",
       geojson: JSON.stringify({
         type: "Polygon",
         coordinates: [
@@ -57,7 +57,7 @@ if (!countQuery || countQuery.count === 0) {
     },
     {
       name: "Kawasan Konservasi Bromo Forest",
-      ownership: "Swasta",
+      ownership: "Pondok Pesantren",
       geojson: JSON.stringify({
         type: "Polygon",
         coordinates: [
@@ -153,7 +153,7 @@ const server = serve({
           // Build dynamic update
           const updates: string[] = [];
           const values: any[] = [];
-          
+
           if (name) {
             updates.push("name = ?");
             values.push(name.trim());
@@ -177,7 +177,7 @@ const server = serve({
           const updatedRegion = updateStmt.get(...values);
 
           if (!updatedRegion) {
-             return Response.json({ error: "Region not found" }, { status: 404, headers: corsHeaders });
+            return Response.json({ error: "Region not found" }, { status: 404, headers: corsHeaders });
           }
 
           return Response.json({ success: true, region: updatedRegion }, { headers: corsHeaders });

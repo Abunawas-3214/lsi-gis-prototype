@@ -88,9 +88,9 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigateToEditor, onUpdate
               properties: { id: region.id, name: region.name, ownership: region.ownership, created_at: region.created_at },
               geometry: geometry.geometry || geometry,
             };
-            const isNegeri = region.ownership === "Negeri";
-            const mainColor = isNegeri ? "#2563eb" : "#059669";
-            const fillColor = isNegeri ? "#3b82f6" : "#10b981";
+            const isPTN = region.ownership === "Perguruan Tinggi Islam";
+            const mainColor = isPTN ? "#2563eb" : "#059669";
+            const fillColor = isPTN ? "#3b82f6" : "#10b981";
             return (
               <GeoJSON
                 key={`${region.id}-${region.name}`}
@@ -101,7 +101,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigateToEditor, onUpdate
                     `<div style="min-width:180px;padding:2px">
                       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
                         <span style="font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase">ID #${region.id}</span>
-                        <span style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:9999px;background:${isNegeri ? "rgba(59,130,246,.2)" : "rgba(16,185,129,.2)"};color:${isNegeri ? "#93c5fd" : "#6ee7b7"};border:1px solid ${isNegeri ? "rgba(59,130,246,.4)" : "rgba(16,185,129,.4)"}">
+                        <span style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:9999px;background:${isPTN ? "rgba(59,130,246,.2)" : "rgba(16,185,129,.2)"};color:${isPTN ? "#93c5fd" : "#6ee7b7"};border:1px solid ${isPTN ? "rgba(59,130,246,.4)" : "rgba(16,185,129,.4)"}">
                           ${region.ownership}
                         </span>
                       </div>
@@ -144,11 +144,11 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigateToEditor, onUpdate
           <div className="flex items-center gap-4 text-[11px]">
             <div className="flex items-center gap-1.5">
               <span className="w-3 h-3 rounded bg-blue-500/40 border border-blue-500 inline-block" />
-              <span>Negeri</span>
+              <span>Perguruan Tinggi Islam</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="w-3 h-3 rounded bg-emerald-500/40 border border-emerald-500 inline-block" />
-              <span>Swasta</span>
+              <span>Pondok Pesantren</span>
             </div>
           </div>
           <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between gap-2">

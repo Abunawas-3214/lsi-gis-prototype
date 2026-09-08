@@ -20,18 +20,17 @@ export const Navigation: React.FC<NavigationProps> = ({
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
           </span>
-          <span className="text-white">WebGIS</span>
-          <span className="text-slate-400 text-[11px] font-normal hidden sm:inline">Jatim</span>
+          <span className="text-white">LSI-GIS</span>
+          <span className="text-slate-400 text-[11px] font-normal hidden sm:inline">Protoype</span>
         </div>
 
         {/* Home Tab */}
         <button
           onClick={() => onNavigate("/")}
-          className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full transition-all duration-200 cursor-pointer ${
-            currentPath === "/"
-              ? "bg-blue-600 text-white font-medium shadow-md shadow-blue-500/25"
-              : "text-slate-400 hover:text-white hover:bg-slate-800/80"
-          }`}
+          className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full transition-all duration-200 cursor-pointer ${currentPath === "/"
+            ? "bg-blue-600 text-white font-medium shadow-md shadow-blue-500/25"
+            : "text-slate-400 hover:text-white hover:bg-slate-800/80"
+            }`}
           title="Tampilan Peta Wilayah"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -48,11 +47,10 @@ export const Navigation: React.FC<NavigationProps> = ({
         {/* Editor Tab */}
         <button
           onClick={() => onNavigate("/editor")}
-          className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full transition-all duration-200 cursor-pointer ${
-            currentPath === "/editor"
-              ? "bg-emerald-600 text-white font-medium shadow-md shadow-emerald-500/25"
-              : "text-slate-400 hover:text-white hover:bg-slate-800/80"
-          }`}
+          className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full transition-all duration-200 cursor-pointer ${currentPath === "/editor"
+            ? "bg-emerald-600 text-white font-medium shadow-md shadow-emerald-500/25"
+            : "text-slate-400 hover:text-white hover:bg-slate-800/80"
+            }`}
           title="Editor Gambar Poligon"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
